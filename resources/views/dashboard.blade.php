@@ -1,6 +1,7 @@
 <div>
     <h1>Dashboard</h1>
     <a href="{{ route('links.create') }}">Criar</a>
+    <a href="{{ route('profile') }}">Profile</a>
     <ul>
         @foreach ($links as $link)
             <li style="display: flex; gap: 5px">
