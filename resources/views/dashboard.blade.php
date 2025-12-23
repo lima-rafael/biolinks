@@ -1,4 +1,5 @@
-<div>
+<x-layout.app>
+    <div>
     <h1>Dashboard</h1>
     <a href="{{ route('links.create') }}">Criar</a>
     <a href="{{ route('profile') }}">Profile</a>
@@ -34,3 +35,4 @@
         @endforeach
     </ul>
 </div>
+</x-layout.app>

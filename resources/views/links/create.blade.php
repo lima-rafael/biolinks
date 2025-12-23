@@ -1,27 +1,14 @@
-<div>
-    <h1>Criar um link</h1>
-
-    @if ($mensagem = session()->get('mensagem'))
-        <span>{{$mensagem}}</span>        
-    @endif
-
-    <form action="{{ route('links.create') }}" method="POST">
-        @csrf
-        <div>
-            <input type="text" name="link" placeholder="Link" value="{{ old('link') }}">
-            @error('link')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-        <br>
-        <div>
-            <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
-            @error('name')
-                <span>{{$message}}</span>
-            @enderror
-        </div>
-        <br>
-        <a href="{{ route('dashboard') }}">Cancelar</a>
-        <button type="submit">Salvar</button>
-    </form>
-</div>
+<x-layout.app>
+    <x-container>
+        <x-card title="Create an link">
+            <x-form :route="route('links.create')" post id="form">
+                <x-input type="link" name="link" placeholder="Link" value="{{ old('email') }}" />
+                <x-input name="name" placeholder="Name" value="{{ old('name') }}" />
+            </x-form>
+            <x-slot:actions>
+                <x-a :href="route('dashboard')">Cancel</x-a>
+                <x-button type="submit" form="form">Save</x-button>
+            </x-slot:actions>
+        </x-card>
+    </x-container>
+</x-layout.app>
