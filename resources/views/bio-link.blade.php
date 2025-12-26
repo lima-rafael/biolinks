@@ -1,16 +1,22 @@
 <x-layout.app>
-    <div>
-        <h1>{{ $user->name }} - {{ $user->id }}</h1>
-        <p>{{ $user->description }}</p>
-        <img src="/storage/{{ $user->photo }}" alt="Profile Photo">
-        <ul>
-            @foreach ($user->links as $link)
-                <li>
-                    <a href="{{ $link->link }}" target="_blank">
-                        {{ $link->id }} . {{ $link->name }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+    <x-container>
+        <div class="text-center space-y-2 w-2/3">
+            <x-img src="/storage/{{ $user->photo }}" alt="Profile Pictire" />
+            <div class="font-bold text-2xl tracking-wider">
+                {{ $user->name }}
+            </div>
+            <div class="text-sm opacity-80">
+                {{ $user->description }}
+            </div>
+            <ul class="space-y-2">
+                @foreach ($user->links as $link)
+                    <li class="flex justify-center items-center">
+                        <x-button href="{{ $link->link }}" wide outline info target="_blank">
+                            {{ $link->name }}
+                        </x-button>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </x-container>
 </x-layout.app>
