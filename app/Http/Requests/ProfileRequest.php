@@ -20,12 +20,6 @@ class ProfileRequest extends FormRequest
         return true;
     }
 
-    protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
-    {
-        dd($validator->errors()->toArray());
-    }
-
-
     /**
      * Get the validation rules that apply to the request.
      *
